@@ -13,17 +13,17 @@
 
 
 	// Your image link
-	$image = imagecreatefrompng('images/countdown.png');
+	$image = imagecreatefrompng('images/countdown_dark.png');
 
 	$delay = 100;// milliseconds
 
 	$font = array(
-		'size'=>23, // Font size, in pts usually.
+		'size'=>40, // Font size, in pts usually.
 		'angle'=>0, // Angle of the text
 		'x-offset'=>7, // The larger the number the further the distance from the left hand side, 0 to align to the left.
-		'y-offset'=>30, // The vertical alignment, trial and error between 20 and 60.
-		'file'=>'./GillSans.ttc', // Font path
-		'color'=>imagecolorallocate($image, 55, 160, 130), // RGB Colour of the text
+		'y-offset'=>60, // The vertical alignment, trial and error between 20 and 60.
+		'file'=>'./DIGITALDREAM.ttf', // Font path
+		'color'=>imagecolorallocate($image, 255, 255, 255), // RGB Colour of the text
 	);
 	for($i = 0; $i <= 60; $i++){
 		
@@ -31,7 +31,7 @@
 		
 		if($future_date < $now){
 			// Open the first source image and add the text.
-			$image = imagecreatefrompng('images/countdown.png');
+			$image = imagecreatefrompng('images/countdown_dark.png');
 			;
 			$text = $interval->format('00:00:00:00');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
@@ -44,9 +44,9 @@
 			break;
 		} else {
 			// Open the first source image and add the text.
-			$image = imagecreatefrompng('images/countdown.png');
+			$image = imagecreatefrompng('images/countdown_dark.png');
 			;
-			$text = $interval->format('0%a %H %I %S');
+			$text = $interval->format('%a %H %I %S');
 			imagettftext ($image , $font['size'] , $font['angle'] , $font['x-offset'] , $font['y-offset'] , $font['color'] , $font['file'], $text );
 			ob_start();
 			imagegif($image);
